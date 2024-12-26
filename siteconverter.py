@@ -6,7 +6,6 @@ import regex as re
 import nbconvert
 import helpers
 
-print("Loaded config:\n",config)
 ### Helper functions ###
 
 # function to write at specific 
