@@ -308,5 +308,8 @@ def main():
                         stop_token="{{< token_end >}}",
                         file=path,
                         to_write=to_write)
+            print(f"*****{language}*****")
+            print(f"Wrote file: {path}\nFrom URL: {url} ({len(to_write)} chars)")
+            print(f"*****{language}*****")
       
 main()
