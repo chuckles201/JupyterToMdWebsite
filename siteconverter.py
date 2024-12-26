@@ -290,7 +290,7 @@ def main():
             to_write = json_to_md(data_raw,language=code_lang,path_img=path_img) # quick
             
             write_mdfile(start_token="{{< token_start >}}",
-                        stop_token="{{< token_end' >}}",
+                        stop_token="{{< token_end >}}",
                         file=path,
                         to_write=to_write)
     
@@ -305,7 +305,7 @@ def main():
             to_write = code_to_md(data_raw,language)
             # for arbitrary code-language!
             write_mdfile(start_token="{{< token_start >}}",
-                        stop_token="{{< token_end' >}}",
+                        stop_token="{{< token_end >}}",
                         file=path,
                         to_write=to_write)
             print(f"*****{language}*****")
