@@ -289,8 +289,8 @@ def main():
             code_lang = data_raw["metadata"]["kernelspec"]["language"]
             to_write = json_to_md(data_raw,language=code_lang,path_img=path_img) # quick
             
-            write_mdfile(start_token="{{< start_token >}}",
-                        stop_token="{{< end_token' >}}",
+            write_mdfile(start_token="{{< token_start >}}",
+                        stop_token="{{< token_end' >}}",
                         file=path,
                         to_write=to_write)
     
@@ -304,8 +304,8 @@ def main():
             # writes markdown file
             to_write = code_to_md(data_raw,language)
             # for arbitrary code-language!
-            write_mdfile(start_token="{{< start_token >}}",
-                        stop_token="{{< end_token' >}}",
+            write_mdfile(start_token="{{< token_start >}}",
+                        stop_token="{{< token_end' >}}",
                         file=path,
                         to_write=to_write)
             print(f"*****{language}*****")
