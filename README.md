@@ -25,4 +25,9 @@ Here are the instructions to set up:
 
 with the format of ```"any-language;posts/post_url.md":"githubrawlink"```
 
-4. Lastly, create shortcodes for detail_rain, and code_output in your ```/layouts/shortcodes``` directory in your site. For tutorials on creating a custom shortcodes look [here](https://www.youtube.com/watch?v=Eu4zSaKOY4A&list=PLLAZ4kZ9dFpOnyRlyS-liKL5ReHDcj4G3&index=22&ab_channel=GiraffeAcademy). detail_rain is the CSS that displays/formats your code, and the code_output formats your output. ***I have my examples linked in the ```examples``` folder, copy all of them here, and modify them later for best results***. 
+4. Lastly, copy shortcodes for detail_rain, code_output, and others in your ```/layouts/shortcodes``` directory in your site. For tutorials on creating a custom shortcodes look [here](https://www.youtube.com/watch?v=Eu4zSaKOY4A&list=PLLAZ4kZ9dFpOnyRlyS-liKL5ReHDcj4G3&index=22&ab_channel=GiraffeAcademy). detail_rain is the CSS that displays/formats your code, and the code_output formats your output. ***I have my examples linked in the ```examples``` folder, copy all of them here, and modify them later for best results***.
+
+> Now, running ```python siteconverter.py``` should automatically update the posts that you've linked! 
+
+Leave an issue if this is not working
+
