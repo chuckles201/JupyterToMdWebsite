@@ -5,12 +5,7 @@ import json
 import regex as re
 import nbconvert
 import helpers
-import yaml
 
-# getting variables
-with open('config.yml','r') as config:
-    config = yaml.safe_load(config)
-    
 print("Loaded config:\n",config)
 ### Helper functions ###
 
