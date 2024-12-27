@@ -91,7 +91,7 @@ def find_replace_images(text,url,post_name):
         download_url = "".join([full_url,"?raw=true"])
         
         # Send an HTTP GET request to the URL
-        print(download_url)
+        print("Downloading: ",download_url)
         response = requests.get(download_url)
 
         # Check if the request was successful
