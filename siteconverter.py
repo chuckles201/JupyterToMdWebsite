@@ -44,16 +44,32 @@ def write_mdfile(start_token,stop_token,file,to_write):
 ### Code-Converter ###
 '''Given just language, and data,
 convert the code simple into md!'''
-def code_to_md(data_str,language):
-    data_str = list(data_str)
-    # start code-block
-    start = f'\n{{{{< detail_rain summary= "{language}" open="True" >}}}}\n```{language}\n'
-    end = f'\n{{{{</ detail_rain >}}}}\n'
-    data_str.insert(0,start)
-    data_str.append(end)
+def code_to_md(data_str,language,url,post):
     
-    data_str = "".join(data_str)
-    data_str = format_out(data_str)
+    # code-block
+    if language != "markdown":
+        data_str = list(data_str)
+        start = f'\n{{{{< detail_rain summary= "{language}" open="True" >}}}}\n```{language}\n'
+        end = f'\n{{{{</ detail_rain >}}}}\n'
+        data_str.insert(0,start)
+        data_str.append(end)
+        
+        data_str = "".join(data_str)
+        data_str = format_out(data_str)
+    
+    # special case for markdown
+    # download images for correct-path 
+    if language == "markdown":
+        data_str = list(data_str)
+        start = f'\n'
+        end = f'\n'
+        data_str.insert(0,start)
+        data_str.append(end)
+        
+        data_str = "".join(data_str)
+        data_str = format_out(data_str)
+        data_str = helpers.find_replace_images(data_str,url,post[:-3])
+    
     return data_str
 
 
@@ -110,7 +126,7 @@ into static/post_name, and then load in markdown
 For code, load into appropriate code-block, and for
 output of code, also load into appropriate codeblock.'''
 
-def json_to_md(data_dict,language,path_img):
+def json_to_md(data_dict,language,path_img,url,post):
     # list of cells
     cells = data_dict["cells"]
 
@@ -124,14 +140,13 @@ def json_to_md(data_dict,language,path_img):
         if cell["cell_type"] == "markdown":
             # list of elements
             lines = cell["source"]
-            # print(f"MD: {i}/{len(cells)}, source: {lines}")
             
-            # markdown-format
-            lines.append("\n{{</ markdown >}}\n")
-            lines.insert(0,"\n{{< markdown >}}\n")
+            lines.insert(0,"\n")
+            lines.append("\n")
             
             # concat
             lines = "".join(lines)
+            lines = helpers.find_replace_images(lines,url,post[:-3])
             data_stream.append(lines)
         
         elif cell["cell_type"] == "code":
@@ -268,10 +283,11 @@ def main():
     for post_lang in list(post_url_dict.keys()):
         # language and post
         language,post = post_lang.split(';')
-        print(language,post)
 
         url = post_url_dict[post_lang]
-        print(url)
+        
+        print(f"\n\nPosting {language} | To {post} | From {url}\n\n")
+        
         # requesting url
         r = requests.get(url)
         
@@ -287,7 +303,7 @@ def main():
                     
             # parsing text...
             code_lang = data_raw["metadata"]["kernelspec"]["language"]
-            to_write = json_to_md(data_raw,language=code_lang,path_img=path_img) # quick
+            to_write = json_to_md(data_raw,language=code_lang,path_img=path_img,url=url,post=post) # quick
             
             write_mdfile(start_token="{{< token_start >}}",
                         stop_token="{{< token_end >}}",
@@ -302,7 +318,7 @@ def main():
             # getting raw-text
             data_raw = r.text
             # writes markdown file
-            to_write = code_to_md(data_raw,language)
+            to_write = code_to_md(data_raw,language,url=url,post=post)
             # for arbitrary code-language!
             write_mdfile(start_token="{{< token_start >}}",
                         stop_token="{{< token_end >}}",
