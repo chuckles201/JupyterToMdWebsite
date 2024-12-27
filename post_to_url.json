@@ -1,4 +1,5 @@
 {
-    "jupyter;posts/test_ipynb.md":"https://github.com/chuckles201/VQ-VAE-Implementation/blob/main/data/download.ipynb?raw=true",
-    "python;posts/raw_test.md":"https://raw.githubusercontent.com/chuckles201/DiT-Implementation/refs/heads/main/DDPM/sampler.py"
+    "jupyter;posts/test_ipynb.md":"https://raw.githubusercontent.com/chuckles201/DiT-Implementation/refs/heads/main/DDPM/explained.ipynb",
+    "python;posts/raw_test.md":"https://raw.githubusercontent.com/chuckles201/DiT-Implementation/refs/heads/main/DDPM/sampler.py",
+    "markdown;posts/autosocial.md":"https://raw.githubusercontent.com/chuckles201/autosocial/refs/heads/main/README.md"
 }
