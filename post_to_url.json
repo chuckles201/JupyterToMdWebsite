@@ -1,6 +1,5 @@
 {
     "jupyter;posts/test_ipynb.md":"https://raw.githubusercontent.com/chuckles201/DiT-Implementation/refs/heads/main/DDPM/explained.ipynb",
     "python;posts/raw_test.md":"https://raw.githubusercontent.com/chuckles201/DiT-Implementation/refs/heads/main/DDPM/sampler.py",
-    "markdown;posts/autosocial.md":"https://raw.githubusercontent.com/chuckles201/autosocial/refs/heads/main/README.md",
-    "jupyter;posts/CircuitryBasicsNotes.md":"https://raw.githubusercontent.com/chuckles201/Arduino/refs/heads/main/circuits/notes.%26implementation.ipynb"
+    "markdown;posts/autosocial.md":"https://raw.githubusercontent.com/chuckles201/autosocial/refs/heads/main/README.md"
 }
