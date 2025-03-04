@@ -1,5 +1,6 @@
 {
     "jupyter;posts/test_ipynb.md":"https://raw.githubusercontent.com/chuckles201/DiT-Implementation/refs/heads/main/DDPM/explained.ipynb",
     "python;posts/raw_test.md":"https://raw.githubusercontent.com/chuckles201/DiT-Implementation/refs/heads/main/DDPM/sampler.py",
-    "markdown;posts/autosocial.md":"https://raw.githubusercontent.com/chuckles201/autosocial/refs/heads/main/README.md"
+    "markdown;posts/autosocial.md":"https://raw.githubusercontent.com/chuckles201/autosocial/refs/heads/main/README.md",
+    "jupyter;posts/GameEngine.md":"https://raw.githubusercontent.com/chuckles201/GameEngine/refs/heads/main/Engine/Notes.ipynb"
 }
