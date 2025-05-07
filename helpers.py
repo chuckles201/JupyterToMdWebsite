@@ -57,7 +57,10 @@ and then download
 2. Download image
 3. Correct md-path'''
     
-def find_replace_images(text,url,post_name):
+with open('../pass.txt','r') as f:
+    git_token = f.read().strip()
+    print("PASSSSS: ",git_token)
+def find_replace_images(text,url,post_name,git_token=git_token):
     
     # download and return right md-insertion
     def download_image_md(path_md_string,original_path=url,post_name=post_name):        
@@ -92,7 +95,11 @@ def find_replace_images(text,url,post_name):
         
         # Send an HTTP GET request to the URL
         print("Downloading: ",download_url)
-        response = requests.get(download_url)
+        
+        headers = {
+            "Authorization":f"{git_token}"
+        }
+        response = requests.get(download_url,headers=headers)
 
         # Check if the request was successful
         # should still not break if wrong path!
