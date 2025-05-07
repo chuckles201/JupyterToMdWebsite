@@ -302,7 +302,11 @@ def main():
             os.makedirs(path_img,exist_ok=True)
                     
             # parsing text...
-            code_lang = data_raw["metadata"]["kernelspec"]["language"]
+            try:
+                code_lang = data_raw["metadata"]["kernelspec"]["language"]
+            except:
+                print("ERROR, DEFAILTING TO PYTHON")
+                code_lang = "python"
             to_write = json_to_md(data_raw,language=code_lang,path_img=path_img,url=url,post=post) # quick
             
             write_mdfile(start_token="{{< token_start >}}",
